@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!--<button onclick="window.location='@{/add}'">Add User</button>-->
+<button type="button" th:onclick="|window.location.href='/add'|" >Add User</button>
+<br>
+<button type="button" th:onclick="|window.location.href='/delete'|" >Delete User</button>
+<br>
+<button type="button" th:onclick="|window.location.href='/update'|" >Change User</button>
+  <h1>Users</h1>
+  <br/>
+  <div>
+      <table>
+          <tr>
+              <th>ID</th>
+              <th>Name</th>
+              <th>LastName</th>
+          </tr>
+          <tr th:each="user : ${userList}">
+              <td th:utext="${user.getId()}"></td>
+              <td th:utext="${user.getName()}"></td>
+              <td th:utext="${user.getLastName()}"></td>
+          </tr>
+      </table>
+  </div>
+</body>
+</html>
